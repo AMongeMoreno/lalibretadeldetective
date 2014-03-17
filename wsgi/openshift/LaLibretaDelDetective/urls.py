@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url
-from libreta import views
+from LaLibretaDelDetective import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index')

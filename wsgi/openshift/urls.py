@@ -8,7 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     
-    url(r'^$', include('libreta.urls')),
+    url(r'^$', include('LaLibretaDelDetective.urls')),
     # url(r'^$', 'openshift.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
