@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import imp
+import openshiftlibs 
 
 ON_OPENSHIFT = False
 if 'OPENSHIFT_REPO_DIR' in os.environ:
@@ -26,7 +27,6 @@ default_keys = { 'SECRET_KEY': 'tjy&7h%c=q01+c5i@_-t)&n2c+y*tn7v_)vbdksnlv@s5qh%
 use_keys = default_keys
 if ON_OPENSHIFT:
     imp.find_module('openshiftlibs')
-    import openshiftlibs
     use_keys = openshiftlibs.openshift_secure(default_keys)
 
 SECRET_KEY = use_keys['SECRET_KEY']
@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'libreta'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,6 +90,10 @@ WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
      os.path.join(BASE_DIR,'templates'),
+)
+TEMPLATE_LOADERS = (
+    'django.template.loaders.app_directories.load_template_source',
+    'django.template.loaders.filesystem.load_template_source',
 )
 
 # Database
