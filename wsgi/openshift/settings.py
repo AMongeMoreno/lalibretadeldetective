@@ -91,10 +91,12 @@ WSGI_APPLICATION = 'wsgi.application'
 TEMPLATE_DIRS = (
      os.path.join(BASE_DIR,'templates'),
 )
+
 TEMPLATE_LOADERS = (
-    'django.template.loaders.app_directories.load_template_source',
-    'django.template.loaders.filesystem.load_template_source',
-)
+    'django.template.loaders.app_directories.Loader', 
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.eggs.Loader',
+) 
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
