@@ -6,7 +6,7 @@ import os
 # Uncomment one or more lines below in the install_requires section
 # for the specific client drivers/modules your application needs.
 packages = ['Django<=1.6',
-                  # 'CherryPy', # If you want serve Django through CherryPy
+                  'CherryPy', # If you want serve Django through CherryPy
                   'static3',  # If you want serve the static files in the same server
                    #  'mysql-connector-python',
                    #  'pymongo',
