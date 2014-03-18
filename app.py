@@ -37,8 +37,8 @@ if __name__ == '__main__':
    zapp = imp.load_source('application', 'wsgi/application')
 
    print('Starting WSGIServer on %s:%d ... ' % (ip, port))
-   try:
-        run_cherrypy_server(zapp.application, ip, port)
-   except:
-        print("cherrypy probably not installed - using default simple server ...")
-        run_simple_httpd_server(zapp.application, ip, port)
+   run_simple_httpd_server(zapp.application, ip, port)
+#   try:
+#        run_cherrypy_server(zapp.application, ip, port)
+#   except:
+#        print("cherrypy probably not installed - using default simple server ...")
