@@ -11,9 +11,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import imp
-import openshiftlibs 
+import openshiftlibs
 
-ON_OPENSHIFT = False
+ON_OPENSHIFT = False 
 if 'OPENSHIFT_REPO_DIR' in os.environ:
     ON_OPENSHIFT = True
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'LaLibretaDelDetective',
 )
 
 MIDDLEWARE_CLASSES = (
