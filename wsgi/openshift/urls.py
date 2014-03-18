@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'openshift.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     
-    url(r'^libreta/', 'views.libreta', name='libreta'),
+    url(r'^libreta/', 'views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^homes/', 'views.home', name='home'),
 )
