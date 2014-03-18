@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import hashlib, inspect, os, random, sys
 
- 
 # Gets the secret token provided by OpenShift
 # or generates one (this is slightly less secure, but good enough for now)
 def get_openshift_secret_token():
@@ -85,3 +84,4 @@ def make_secure_key(key_info):
 
     # Set the value
     return rand_key
+ 
