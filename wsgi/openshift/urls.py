@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     
     url(r'^libreta/', 'views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^homes/', 'views.home', name='home'),
+    url(r'^homes/', 'views.home', name='home'), 
 )
