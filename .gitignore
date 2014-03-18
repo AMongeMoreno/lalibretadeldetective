@@ -13,5 +13,4 @@ virtenv/
 dist/
 build/
 .credentials
-manage.py
 
