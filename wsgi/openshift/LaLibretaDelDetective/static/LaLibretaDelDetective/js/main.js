@@ -5,8 +5,12 @@ $(function() {
     	covers: true,
     	arrows: true,
     	autoCenter:true,
-    	width: 780,
-    	height: 600,
+    	hovers:false,
+    	manual:false,
+    	width: '70%',
+    	height: '120ex',
+    	chapterSelector: true,
+		menu:"#custom-menu",
     	});    
     	
     $(".b-div-cover-back").parent().addClass('b-page-cover-back');
