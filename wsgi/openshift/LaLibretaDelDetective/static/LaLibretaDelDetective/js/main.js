@@ -7,8 +7,8 @@ $(function() {
     	autoCenter:true,
     	hovers:false,
     	manual:false,
-    	width: '100%',
-    	height: '800px',
+    	width: '939px',
+    	height: '840px',
     	chapterSelector: true,
 		menu:"#custom-menu",
     	});    
