@@ -14,7 +14,12 @@ then
 else
     echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py syncdb --noinput'"
     python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py syncdb --noinput
+    python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py schemamigration LaLibretaDelDetective --initial
 fi
+
+echo "Migrating LaLibretaDelDetective"
+python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py schemamigration LaLibretaDelDetective --auto
+python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py migrate LaLibretaDelDetective 
 
 echo "Executing 'python $OPENSHIFT_REPO_DIR/wsgi/openshift/manage.py collectstatic --noinput'"
 python "$OPENSHIFT_REPO_DIR"wsgi/openshift/manage.py collectstatic --noinput
