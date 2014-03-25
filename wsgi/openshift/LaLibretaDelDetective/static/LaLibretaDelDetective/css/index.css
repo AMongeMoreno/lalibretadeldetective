@@ -1,0 +1,33 @@
+body {
+	background: #000000;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: JournalEB;
+	padding: 5ex;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: JournalEB;
+	src: url("../fonts/JournalEB.ttf");
+}
+
+#div-front-central {
+	background: #FFFFFF;
+	position: relative;
+	margin: auto;
+	padding: 2em 3em;
+	width: 30%;
+	top: 40%;
+}
+#div-front-general {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 30;
+	background: #000000;
+}

@@ -1,0 +1,25 @@
+{% extends "LaLibretaDelDetective/base.html" %}
+
+{% block head %}
+{% load staticfiles %}
+<script src="{% static 'LaLibretaDelDetective/js/index.js' %}" type="text/javascript"></script>
+<link href="{% static 'LaLibretaDelDetective/css/index.css' %}" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+{% endblock %}
+
+{% block content %}
+<div id="div-front-general">
+	<div id="div-front-central">
+		<form id="form-name" action="/libreta" method="get">
+			{% csrf_token %}
+			<p>
+				Introduce tu nombre aquí para poder acceder a tu libreta de detective.
+			</p>
+			<label for="input-name" >Nombre y Apellidos</label>
+			<div>
+				<input type="text" id="input-name" name="input-name"/>
+				<input type="button" id="input-button" value="Acceder"/>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
