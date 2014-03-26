@@ -15,20 +15,47 @@ def index(request):
 
 @ensure_csrf_cookie
 def libreta(request):
-    name = request.GET.get('input-name')
+    name = request.POST.get('input-name')
     if (name is None):
         return redirect('/')
+
     try: 
         tarea1 = Tarea1.objects.get(alumno=name)
-        tarea1 = tarea1
-        
     except Tarea1.DoesNotExist:
-        tarea1 = {'t1a_1' : '-','t1a_2' : '-','t1a_3' : '-','t1a_4' : '-',
-                   't1a_5' : '-','t1a_6' : '-','t1a_7' : '-','t1a_8' : '-',
-                   't1a_9' : '-','t1a_10' : '-','t1a_11' : '-','t1a_12' : '-',
-                   't1a_13' : '-','t1a_14' : '-','t1a_15' : '-'}
+        tarea1 = Tarea1(alumno = name)
+        tarea1.save()
     
-    context = {'nombre' : name, 'tarea1':  tarea1}
+    try: 
+        tarea2 = Tarea2.objects.get(alumno=name)
+    except Tarea2.DoesNotExist:
+        tarea2 = Tarea2(alumno = name)
+        tarea2.save()
+        
+    try: 
+        tarea3 = Tarea3.objects.get(alumno=name)
+    except Tarea3.DoesNotExist:
+        tarea3 = Tarea3(alumno = name)
+        tarea3.save()
+    
+    try: 
+        tarea4 = Tarea4.objects.get(alumno=name)
+    except Tarea4.DoesNotExist:
+        tarea4 = Tarea4(alumno = name)
+        tarea4.save()
+        
+    try: 
+        tarea5 = Tarea5.objects.get(alumno=name)
+    except Tarea5.DoesNotExist:
+        tarea5 = Tarea5(alumno = name)
+        tarea5.save()
+        
+    try: 
+        tarea6 = Tarea6.objects.get(alumno=name)
+    except Tarea6.DoesNotExist:
+        tarea6 = Tarea6(alumno = name)
+        tarea6.save()            
+    context = {'nombre' : name, 'tarea1':  tarea1,'tarea2': tarea2,'tarea3': tarea3,
+               'tarea4': tarea4,'tarea5': tarea5,'tarea6': tarea6}
     return render(request, 'LaLibretaDelDetective/libreta.html', context)
 
 @ensure_csrf_cookie
@@ -592,22 +619,7 @@ def libreta_save(request):
 		t4_10_8 =  t4_10_8, 
 		t4_10_9 =  t4_10_9, 
 		t4_10_10 = t4_10_10)
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
     tarea4.save()    
 
     # Tarea 5
@@ -665,7 +677,7 @@ def libreta_save(request):
 		t6_1 = t6_1 ,
 		t6_2 = t6_2 )
         
-    tarea5.save()
+    tarea6.save()
 
     result = 'success';
     return HttpResponse("{'result':'" + result + "'}");

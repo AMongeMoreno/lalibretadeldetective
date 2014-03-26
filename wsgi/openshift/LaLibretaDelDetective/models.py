@@ -7,8 +7,11 @@ from django.db import models
 from django.db.models.base import Model
 
 class Alumno(Model):
-    alumno = models.CharField(max_length=50,default="NONE")
-
+    nombre = models.CharField(max_length=25,default="NONE")
+    apellidos = models.CharField(max_length=50,default="NONE")
+    username = models.CharField(max_length=20,default="NONE")
+    password = models.CharField(max_length=16,default="NONE")
+    
 class Tarea1(Model):
     alumno = models.CharField(max_length=50,default="NONE")
      
