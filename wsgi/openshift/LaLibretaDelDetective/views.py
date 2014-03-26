@@ -1,6 +1,6 @@
 # Create your views here.
 from LaLibretaDelDetective.models import Tarea1, Tarea2, Tarea3, Tarea5, Tarea6, \
-    Tarea4
+    Tarea4, Alumno
 from django.core.files.base import File
 from django.db.models.base import Model
 from django.http.response import HttpResponse
@@ -8,17 +8,42 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
 import os
 import settings
+
 @ensure_csrf_cookie
 def index(request):
     context = {}
     return render(request, 'LaLibretaDelDetective/index.html', context)
 
 @ensure_csrf_cookie
+def libreta_create(request):
+    nombre = request.POST.get('input_nombre')
+    apellidos = request.POST.get('input_apellidos')
+    password = request.POST.get('input_pass')
+    name = request.POST.get('input_name')
+    
+    try:
+        Alumno.objects.get(username=name)
+        return redirect('/?error=true')
+    
+    except Tarea1.DoesNotExist:
+        alumno = Alumno(username=name,nombre=nombre,apellidos=apellidos,password=password)
+        alumno.save()
+        return redirect('/libreta')
+    
+
+@ensure_csrf_cookie
 def libreta(request):
-    name = request.POST.get('input-name')
-    if (name is None):
+    name = request.POST.get('input_name')
+    password = request.POST.get('input_pass')
+    
+    if (name is None or password is None):
         return redirect('/')
 
+    try:    
+        Alumno.objects.get(username=name,password=password)
+    except Alumno.DoesNotExist:
+        return redirect('/')
+        
     try: 
         tarea1 = Tarea1.objects.get(alumno=name)
     except Tarea1.DoesNotExist:

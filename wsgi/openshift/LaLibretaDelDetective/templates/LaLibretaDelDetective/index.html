@@ -6,31 +6,41 @@
 <link href="{% static 'LaLibretaDelDetective/css/index.css' %}" type="text/css" rel="stylesheet" media="screen, projection, tv" />
 
 <script src="{% static 'flippy/jquery.flippy.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'validation/jquery.form.js' %}" type="text/javascript"></script>
+<script src="{% static 'validation/jquery.validate.min.js' %}" type="text/javascript"></script>
+
 {% endblock %}
 
 {% block content %}
 <div id="div-front-general">
 	<div id="div-front-central" >
 		<div class="flipbox-container">
-		<div class="flipbox">
-			<form id="form-name" action="/libreta" method="post">
-				{% csrf_token %}
-				<p>
-					¡ Bienvenido Detective !
-				</p>
-				<p>
-					Introduce tus datos aquí para poder acceder a tu libreta de detective.
-				</p>
-				<div>
-					<label for="input-name" >Nombre y Apellidos :</label>
-					<input type="text" id="input-name" name="input-name"/>
-				</div>
-				<input type="submit" id="input-button" value="Acceder"/>
-			</form>
-			<button onclick="flip();">Ya tengo libreta.</button>
-		</div>
+			<div class="flipbox">
+				<form id="form-name" action="/libreta" method="post">
+					{% csrf_token %}
+					<p>
+						¡ Bienvenido Detective !
+					</p>
+					<table id="table-input">
+						<tbody>
+							<tr>
+								<td class="label-container"><label for="input_name" >Nombre de detective :</label></td>
+								<td class="input-container"><input type="text" id="input_name" name="input_name"/></td>
+							</tr>
+							<tr>
+								<td class="label-container"><label for="input_pass" >Contraseña :</label></td>
+								<td class="input-container"><input type="password" id="input_pass" name="input_pass"/></td>
+							</tr>
+						</tbody>
+					</table>
+					<input type="submit" id="input-button" value="Acceder"/>
+				</form>
+				<button onclick="flip(); validate();">
+					Aún no tengo libreta.
+				</button>
+			</div>
 		</div>
 	</div>
-	
+
 </div>
 {% endblock %}
