@@ -1,5 +1,6 @@
 # Create your views here.
-from LaLibretaDelDetective.models import Tarea1, Tarea2, Tarea3, Tarea5, Tarea6
+from LaLibretaDelDetective.models import Tarea1, Tarea2, Tarea3, Tarea5, Tarea6, \
+    Tarea4
 from django.core.files.base import File
 from django.db.models.base import Model
 from django.http.response import HttpResponse
@@ -257,7 +258,357 @@ def libreta_save(request):
     tarea3.save()
     
     # Tarea 4
+
+    t4_1_1 = request.POST.get('t4_1_1')
+    t4_1_2 = request.POST.get('t4_1_2')
+    t4_1_3 = request.POST.get('t4_1_3')
+    t4_1_4 = request.POST.get('t4_1_4')
+    t4_1_5 = request.POST.get('t4_1_5')
+    t4_1_6 = request.POST.get('t4_1_6')
+    t4_1_7 = request.POST.get('t4_1_7')
+    t4_1_8 = request.POST.get('t4_1_8')
+    t4_1_9 = request.POST.get('t4_1_9')
+    t4_1_10 = request.POST.get('t4_1_10')
     
+    t4_2_1 = request.POST.get('t4_2_1')
+    t4_2_2 = request.POST.get('t4_2_2')
+    t4_2_3 = request.POST.get('t4_2_3')
+    t4_2_4 = request.POST.get('t4_2_4')
+    t4_2_5 = request.POST.get('t4_2_5')
+    t4_2_6 = request.POST.get('t4_2_6')
+    t4_2_7 = request.POST.get('t4_2_7')
+    t4_2_8 = request.POST.get('t4_2_8')
+    t4_2_9 = request.POST.get('t4_2_9')
+    t4_2_10 = request.POST.get('t4_2_10')
+
+    t4_3_1 = request.POST.get('t4_3_1')
+    t4_3_2 = request.POST.get('t4_3_2')
+    t4_3_3 = request.POST.get('t4_3_3')
+    t4_3_4 = request.POST.get('t4_3_4')
+    t4_3_5 = request.POST.get('t4_3_5')
+    t4_3_6 = request.POST.get('t4_3_6')
+    t4_3_7 = request.POST.get('t4_3_7')
+    t4_3_8 = request.POST.get('t4_3_8')
+    t4_3_9 = request.POST.get('t4_3_9')
+    t4_3_10 = request.POST.get('t4_3_10')
+
+    t4_4_1 = request.POST.get('t4_4_1')
+    t4_4_2 = request.POST.get('t4_4_2')
+    t4_4_3 = request.POST.get('t4_4_3')
+    t4_4_4 = request.POST.get('t4_4_4')
+    t4_4_5 = request.POST.get('t4_4_5')
+    t4_4_6 = request.POST.get('t4_4_6')
+    t4_4_7 = request.POST.get('t4_4_7')
+    t4_4_8 = request.POST.get('t4_4_8')
+    t4_4_9 = request.POST.get('t4_4_9')
+    t4_4_10 = request.POST.get('t4_4_10')
+
+    t4_5_1 = request.POST.get('t4_5_1')
+    t4_5_2 = request.POST.get('t4_5_2')
+    t4_5_3 = request.POST.get('t4_5_3')
+    t4_5_4 = request.POST.get('t4_5_4')
+    t4_5_5 = request.POST.get('t4_5_5')
+    t4_5_6 = request.POST.get('t4_5_6')
+    t4_5_7 = request.POST.get('t4_5_7')
+    t4_5_8 = request.POST.get('t4_5_8')
+    t4_5_9 = request.POST.get('t4_5_9')
+    t4_5_10 = request.POST.get('t4_5_10')
+
+    t4_6_1 = request.POST.get('t4_6_1')
+    t4_6_2 = request.POST.get('t4_6_2')
+    t4_6_3 = request.POST.get('t4_6_3')
+    t4_6_4 = request.POST.get('t4_6_4')
+    t4_6_5 = request.POST.get('t4_6_5')
+    t4_6_6 = request.POST.get('t4_6_6')
+    t4_6_7 = request.POST.get('t4_6_7')
+    t4_6_8 = request.POST.get('t4_6_8')
+    t4_6_9 = request.POST.get('t4_6_9')
+    t4_6_10 = request.POST.get('t4_6_10')
+
+    t4_7_1 = request.POST.get('t4_7_1')
+    t4_7_2 = request.POST.get('t4_7_2')
+    t4_7_3 = request.POST.get('t4_7_3')
+    t4_7_4 = request.POST.get('t4_7_4')
+    t4_7_5 = request.POST.get('t4_7_5')
+    t4_7_6 = request.POST.get('t4_7_6')
+    t4_7_7 = request.POST.get('t4_7_7')
+    t4_7_8 = request.POST.get('t4_7_8')
+    t4_7_9 = request.POST.get('t4_7_9')
+    t4_7_10 = request.POST.get('t4_7_10')
+
+    t4_8_1 = request.POST.get('t4_8_1')
+    t4_8_2 = request.POST.get('t4_8_2')
+    t4_8_3 = request.POST.get('t4_8_3')
+    t4_8_4 = request.POST.get('t4_8_4')
+    t4_8_5 = request.POST.get('t4_8_5')
+    t4_8_6 = request.POST.get('t4_8_6')
+    t4_8_7 = request.POST.get('t4_8_7')
+    t4_8_8 = request.POST.get('t4_8_8')
+    t4_8_9 = request.POST.get('t4_8_9')
+    t4_8_10 = request.POST.get('t4_8_10')
+
+    t4_9_1 = request.POST.get('t4_9_1')
+    t4_9_2 = request.POST.get('t4_9_2')
+    t4_9_3 = request.POST.get('t4_9_3')
+    t4_9_4 = request.POST.get('t4_9_4')
+    t4_9_5 = request.POST.get('t4_9_5')
+    t4_9_6 = request.POST.get('t4_9_6')
+    t4_9_7 = request.POST.get('t4_9_7')
+    t4_9_8 = request.POST.get('t4_9_8')
+    t4_9_9 = request.POST.get('t4_9_9')
+    t4_9_10 = request.POST.get('t4_9_10')
+
+    t4_10_1 = request.POST.get('t4_10_1')
+    t4_10_2 = request.POST.get('t4_10_2')
+    t4_10_3 = request.POST.get('t4_10_3')
+    t4_10_4 = request.POST.get('t4_10_4')
+    t4_10_5 = request.POST.get('t4_10_5')
+    t4_10_6 = request.POST.get('t4_10_6')
+    t4_10_7 = request.POST.get('t4_10_7')
+    t4_10_8 = request.POST.get('t4_10_8')
+    t4_10_9 = request.POST.get('t4_10_9')
+    t4_10_10 = request.POST.get('t4_10_10')    
+
+    try: 
+        tarea4 = Tarea4.objects.get(alumno=nombre)
+        tarea4.t4_1_1 =  t4_1_1 
+        tarea4.t4_1_2 =  t4_1_2 
+        tarea4.t4_1_3 =  t4_1_3 
+        tarea4.t4_1_4 =  t4_1_4 
+        tarea4.t4_1_5 =  t4_1_5 
+        tarea4.t4_1_6 =  t4_1_6 
+        tarea4.t4_1_7 =  t4_1_7 
+        tarea4.t4_1_8 =  t4_1_8 
+        tarea4.t4_1_9 =  t4_1_9 
+        tarea4.t4_1_10 = t4_1_10
+        
+        tarea4.t4_2_1 =  t4_2_1 
+        tarea4.t4_2_2 =  t4_2_2 
+        tarea4.t4_2_3 =  t4_2_3 
+        tarea4.t4_2_4 =  t4_2_4 
+        tarea4.t4_2_5 =  t4_2_5 
+        tarea4.t4_2_6 =  t4_2_6 
+        tarea4.t4_2_7 =  t4_2_7 
+        tarea4.t4_2_8 =  t4_2_8 
+        tarea4.t4_2_9 =  t4_2_9 
+        tarea4.t4_2_10 = t4_2_10
+        
+        tarea4.t4_3_1 =  t4_3_1 
+        tarea4.t4_3_2 =  t4_3_2 
+        tarea4.t4_3_3 =  t4_3_3 
+        tarea4.t4_3_4 =  t4_3_4 
+        tarea4.t4_3_5 =  t4_3_5 
+        tarea4.t4_3_6 =  t4_3_6 
+        tarea4.t4_3_7 =  t4_3_7 
+        tarea4.t4_3_8 =  t4_3_8 
+        tarea4.t4_3_9 =  t4_3_9 
+        tarea4.t4_3_10 = t4_3_10
+        
+        tarea4.t4_4_1 =  t4_4_1 
+        tarea4.t4_4_2 =  t4_4_2 
+        tarea4.t4_4_3 =  t4_4_3 
+        tarea4.t4_4_4 =  t4_4_4 
+        tarea4.t4_4_5 =  t4_4_5 
+        tarea4.t4_4_6 =  t4_4_6 
+        tarea4.t4_4_7 =  t4_4_7 
+        tarea4.t4_4_8 =  t4_4_8 
+        tarea4.t4_4_9 =  t4_4_9 
+        tarea4.t4_4_10 = t4_4_10
+        
+        tarea4.t4_5_1 =  t4_5_1 
+        tarea4.t4_5_2 =  t4_5_2 
+        tarea4.t4_5_3 =  t4_5_3 
+        tarea4.t4_5_4 =  t4_5_4 
+        tarea4.t4_5_5 =  t4_5_5 
+        tarea4.t4_5_6 =  t4_5_6 
+        tarea4.t4_5_7 =  t4_5_7 
+        tarea4.t4_5_8 =  t4_5_8 
+        tarea4.t4_5_9 =  t4_5_9 
+        tarea4.t4_5_10 = t4_5_10
+        
+        tarea4.t4_6_1 =  t4_6_1 
+        tarea4.t4_6_2 =  t4_6_2 
+        tarea4.t4_6_3 =  t4_6_3 
+        tarea4.t4_6_4 =  t4_6_4 
+        tarea4.t4_6_5 =  t4_6_5 
+        tarea4.t4_6_6 =  t4_6_6 
+        tarea4.t4_6_7 =  t4_6_7 
+        tarea4.t4_6_8 =  t4_6_8 
+        tarea4.t4_6_9 =  t4_6_9 
+        tarea4.t4_6_10 = t4_6_10
+        
+        tarea4.t4_7_1 =  t4_7_1 
+        tarea4.t4_7_2 =  t4_7_2 
+        tarea4.t4_7_3 =  t4_7_3 
+        tarea4.t4_7_4 =  t4_7_4 
+        tarea4.t4_7_5 =  t4_7_5 
+        tarea4.t4_7_6 =  t4_7_6 
+        tarea4.t4_7_7 =  t4_7_7 
+        tarea4.t4_7_8 =  t4_7_8 
+        tarea4.t4_7_9 =  t4_7_9 
+        tarea4.t4_7_10 = t4_7_10
+        
+        tarea4.t4_8_1 =  t4_8_1 
+        tarea4.t4_8_2 =  t4_8_2 
+        tarea4.t4_8_3 =  t4_8_3 
+        tarea4.t4_8_4 =  t4_8_4 
+        tarea4.t4_8_5 =  t4_8_5 
+        tarea4.t4_8_6 =  t4_8_6 
+        tarea4.t4_8_7 =  t4_8_7 
+        tarea4.t4_8_8 =  t4_8_8 
+        tarea4.t4_8_9 =  t4_8_9 
+        tarea4.t4_8_10 = t4_8_10
+        
+        tarea4.t4_9_1 =  t4_9_1 
+        tarea4.t4_9_2 =  t4_9_2 
+        tarea4.t4_9_3 =  t4_9_3 
+        tarea4.t4_9_4 =  t4_9_4 
+        tarea4.t4_9_5 =  t4_9_5 
+        tarea4.t4_9_6 =  t4_9_6 
+        tarea4.t4_9_7 =  t4_9_7 
+        tarea4.t4_9_8 =  t4_9_8 
+        tarea4.t4_9_9 =  t4_9_9 
+        tarea4.t4_9_10 = t4_9_10
+        
+        tarea4.t4_10_1 =  t4_10_1 
+        tarea4.t4_10_2 =  t4_10_2 
+        tarea4.t4_10_3 =  t4_10_3 
+        tarea4.t4_10_4 =  t4_10_4 
+        tarea4.t4_10_5 =  t4_10_5 
+        tarea4.t4_10_6 =  t4_10_6 
+        tarea4.t4_10_7 =  t4_10_7 
+        tarea4.t4_10_8 =  t4_10_8 
+        tarea4.t4_10_9 =  t4_10_9 
+        tarea4.t4_10_10 = t4_10_10
+        
+    except Tarea3.DoesNotExist:
+        tarea3 = Tarea3(alumno=nombre, 
+		t4_1_1 =  t4_1_1  ,
+		t4_1_2 =  t4_1_2  ,
+		t4_1_3 =  t4_1_3  ,
+		t4_1_4 =  t4_1_4  ,
+		t4_1_5 =  t4_1_5  ,
+		t4_1_6 =  t4_1_6  ,
+		t4_1_7 =  t4_1_7  ,
+		t4_1_8 =  t4_1_8  ,
+		t4_1_9 =  t4_1_9  ,
+        t4_1_10 = t4_1_10 ,
+                          
+		t4_2_1 =  t4_2_1  ,
+		t4_2_2 =  t4_2_2  ,
+		t4_2_3 =  t4_2_3  ,
+		t4_2_4 =  t4_2_4  ,
+		t4_2_5 =  t4_2_5  ,
+		t4_2_6 =  t4_2_6  ,
+		t4_2_7 =  t4_2_7  ,
+		t4_2_8 =  t4_2_8  ,
+		t4_2_9 =  t4_2_9  ,
+		t4_2_10 = t4_2_10 ,
+		                  
+		t4_3_1 =  t4_3_1  ,
+		t4_3_2 =  t4_3_2  ,
+		t4_3_3 =  t4_3_3  ,
+		t4_3_4 =  t4_3_4  ,
+		t4_3_5 =  t4_3_5  ,
+		t4_3_6 =  t4_3_6  ,
+		t4_3_7 =  t4_3_7  ,
+		t4_3_8 =  t4_3_8  ,
+        t4_3_9 =  t4_3_9  ,
+		t4_3_10 = t4_3_10 ,
+		                  
+		t4_4_1 =  t4_4_1  ,
+		t4_4_2 =  t4_4_2  ,
+		t4_4_3 =  t4_4_3  ,
+		t4_4_4 =  t4_4_4  ,
+		t4_4_5 =  t4_4_5  ,
+		t4_4_6 =  t4_4_6  ,
+		t4_4_7 =  t4_4_7  ,
+		t4_4_8 =  t4_4_8  ,
+		t4_4_9 =  t4_4_9  ,
+		t4_4_10 = t4_4_10 ,
+		                  
+		t4_5_1 =  t4_5_1  ,
+		t4_5_2 =  t4_5_2  ,
+		t4_5_3 =  t4_5_3  ,
+		t4_5_4 =  t4_5_4  ,
+		t4_5_5 =  t4_5_5  ,
+		t4_5_6 =  t4_5_6  ,
+		t4_5_7 =  t4_5_7  ,
+		t4_5_8 =  t4_5_8  ,
+		t4_5_9 =  t4_5_9  ,
+		t4_5_10 = t4_5_10 ,
+		                  
+		t4_6_1 =  t4_6_1  ,
+		t4_6_2 =  t4_6_2  ,
+		t4_6_3 =  t4_6_3  ,
+		t4_6_4 =  t4_6_4  ,
+		t4_6_5 =  t4_6_5  ,
+		t4_6_6 =  t4_6_6  ,
+		t4_6_7 =  t4_6_7  ,
+		t4_6_8 =  t4_6_8  ,
+		t4_6_9 =  t4_6_9  ,
+		t4_6_10 = t4_6_10 ,
+		                  
+		t4_7_1 =  t4_7_1  ,
+		t4_7_2 =  t4_7_2  ,
+		t4_7_3 =  t4_7_3  ,
+		t4_7_4 =  t4_7_4  ,
+		t4_7_5 =  t4_7_5  ,
+		t4_7_6 =  t4_7_6  ,
+		t4_7_7 =  t4_7_7  ,
+		t4_7_8 =  t4_7_8  ,
+		t4_7_9 =  t4_7_9  ,
+		t4_7_10 = t4_7_10 ,
+		                  
+		t4_8_1 =  t4_8_1  ,
+		t4_8_2 =  t4_8_2  ,
+		t4_8_3 =  t4_8_3  ,
+		t4_8_4 =  t4_8_4  ,
+		t4_8_5 =  t4_8_5  ,
+		t4_8_6 =  t4_8_6  ,
+		t4_8_7 =  t4_8_7  ,
+		t4_8_8 =  t4_8_8  ,
+		t4_8_9 =  t4_8_9  ,
+		t4_8_10 = t4_8_10 ,
+		                  
+		t4_9_1 =  t4_9_1  ,
+		t4_9_2 =  t4_9_2  ,
+		t4_9_3 =  t4_9_3  ,
+		t4_9_4 =  t4_9_4  ,
+		t4_9_5 =  t4_9_5  ,
+		t4_9_6 =  t4_9_6  ,
+		t4_9_7 =  t4_9_7  ,
+		t4_9_8 =  t4_9_8  ,
+		t4_9_9 =  t4_9_9  ,
+		t4_9_10 = t4_9_10 ,
+		                  
+		t4_10_1 =  t4_10_1, 
+		t4_10_2 =  t4_10_2, 
+		t4_10_3 =  t4_10_3, 
+		t4_10_4 =  t4_10_4, 
+		t4_10_5 =  t4_10_5, 
+		t4_10_6 =  t4_10_6, 
+		t4_10_7 =  t4_10_7, 
+		t4_10_8 =  t4_10_8, 
+		t4_10_9 =  t4_10_9, 
+		t4_10_10 = t4_10_10)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    tarea4.save()    
 
     # Tarea 5
     t5_1 = request.POST.get('t5_1')
