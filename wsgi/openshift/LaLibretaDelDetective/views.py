@@ -1,5 +1,5 @@
 # Create your views here.
-from LaLibretaDelDetective.models import Tarea1
+from LaLibretaDelDetective.models import Tarea1, Tarea2
 from django.core.files.base import File
 from django.db.models.base import Model
 from django.http.response import HttpResponse
@@ -18,8 +18,8 @@ def libreta(request):
     if (name is None):
         return redirect('/')
     try: 
-        answer = Tarea1.objects.get(alumno=name)
-        tarea1 = answer
+        tarea1 = Tarea1.objects.get(alumno=name)
+        tarea1 = tarea1
         
     except Tarea1.DoesNotExist:
         tarea1 = {'t1a_1' : '-','t1a_2' : '-','t1a_3' : '-','t1a_4' : '-',
@@ -33,8 +33,8 @@ def libreta(request):
 @ensure_csrf_cookie
 def libreta_save(request):
     nombre = request.POST.get('nombre')
-#    if nombre is None:
-#        return redirect('/')
+    if nombre is None:
+        return redirect('/')
     
     # Tarea 1
     t1a_1 = request.POST.get('input-t1a-1')
@@ -71,52 +71,91 @@ def libreta_save(request):
     t1b_3_4 = request.POST.get('input-t1b-3-4')
     t1b_3_5 = request.POST.get('input-t1b-3-5')
     try: 
-        answer = Tarea1.objects.get(alumno=nombre)
-        answer.t1a_1 = t1a_1 
-        answer.t1a_2 = t1a_2 
-        answer.t1a_3 = t1a_3 
-        answer.t1a_4 = t1a_4 
-        answer.t1a_5 = t1a_5 
-        answer.t1a_6 = t1a_6 
-        answer.t1a_7 = t1a_7 
-        answer.t1a_8 = t1a_8 
-        answer.t1a_9 = t1a_9 
-        answer.t1a_10 = t1a_10 
-        answer.t1a_11 = t1a_11 
-        answer.t1a_12 = t1a_12 
-        answer.t1a_13 = t1a_13 
-        answer.t1a_14 = t1a_14 
-        answer.t1a_15 = t1a_15 
+        tarea1 = Tarea1.objects.get(alumno=nombre)
+        tarea1.t1a_1 = t1a_1 
+        tarea1.t1a_2 = t1a_2 
+        tarea1.t1a_3 = t1a_3 
+        tarea1.t1a_4 = t1a_4 
+        tarea1.t1a_5 = t1a_5 
+        tarea1.t1a_6 = t1a_6 
+        tarea1.t1a_7 = t1a_7 
+        tarea1.t1a_8 = t1a_8 
+        tarea1.t1a_9 = t1a_9 
+        tarea1.t1a_10 = t1a_10 
+        tarea1.t1a_11 = t1a_11 
+        tarea1.t1a_12 = t1a_12 
+        tarea1.t1a_13 = t1a_13 
+        tarea1.t1a_14 = t1a_14 
+        tarea1.t1a_15 = t1a_15 
 
-        answer.t1b_1_1 = t1b_1_1
-        answer.t1b_1_2 = t1b_1_2
-        answer.t1b_1_3 = t1b_1_3
-        answer.t1b_1_4 = t1b_1_4
-        answer.t1b_1_5 = t1b_1_5
+        tarea1.t1b_1_1 = t1b_1_1
+        tarea1.t1b_1_2 = t1b_1_2
+        tarea1.t1b_1_3 = t1b_1_3
+        tarea1.t1b_1_4 = t1b_1_4
+        tarea1.t1b_1_5 = t1b_1_5
 
-        answer.t1b_2_1 = t1b_2_1
-        answer.t1b_2_2 = t1b_2_2
-        answer.t1b_2_3 = t1b_2_3
-        answer.t1b_2_4 = t1b_2_4
-        answer.t1b_2_5 = t1b_2_5
+        tarea1.t1b_2_1 = t1b_2_1
+        tarea1.t1b_2_2 = t1b_2_2
+        tarea1.t1b_2_3 = t1b_2_3
+        tarea1.t1b_2_4 = t1b_2_4
+        tarea1.t1b_2_5 = t1b_2_5
 
-        answer.t1b_3_1 = t1b_3_1
-        answer.t1b_3_2 = t1b_3_2
-        answer.t1b_3_3 = t1b_3_3
-        answer.t1b_3_4 = t1b_3_4
-        answer.t1b_3_5 = t1b_3_5
+        tarea1.t1b_3_1 = t1b_3_1
+        tarea1.t1b_3_2 = t1b_3_2
+        tarea1.t1b_3_3 = t1b_3_3
+        tarea1.t1b_3_4 = t1b_3_4
+        tarea1.t1b_3_5 = t1b_3_5
 
     except Tarea1.DoesNotExist:
-        answer = Tarea1(alumno=nombre, t1a_1=t1a_1, t1a_2=t1a_2, t1a_3=t1a_3, t1a_4=t1a_4, t1a_5=t1a_5,
+        tarea1 = Tarea1(alumno=nombre, t1a_1=t1a_1, t1a_2=t1a_2, t1a_3=t1a_3, t1a_4=t1a_4, t1a_5=t1a_5,
                         t1a_6=t1a_6, t1a_7=t1a_7, t1a_8=t1a_8, t1a_9=t1a_9, t1a_10=t1a_10, t1a_11=t1a_11,
                         t1a_12=t1a_12, t1a_13=t1a_13, t1a_14=t1a_14, t1a_15=t1a_15, 
                         t1b_1_1=t1b_1_1, t1b_1_2=t1b_1_2, t1b_1_3=t1b_1_3, t1b_1_4=t1b_1_4, t1b_1_5=t1b_1_5,
                         t1b_2_1=t1b_2_1, t1b_2_2=t1b_2_2, t1b_2_3=t1b_2_3, t1b_2_4=t1b_2_4, t1b_2_5=t1b_2_5,
                         t1b_3_1=t1b_3_1, t1b_3_2=t1b_3_2, t1b_3_3=t1b_3_3, t1b_3_4=t1b_3_4, t1b_3_5=t1b_3_5)
     
-    answer.save()
+    tarea1.save()
         
     # Tarea 2
+    t2_1 = request.POST.get('t2-1')
+    t2_2 = request.POST.get('t2-2')
+    t2_3 = request.POST.get('t2-3')
+    t2_4 = request.POST.get('t2-4')
+    t2_5 = request.POST.get('t2-5')
+    t2_6 = request.POST.get('t2-6')
+    t2_7 = request.POST.get('t2-7')
+    t2_8 = request.POST.get('t2-8')
+    t2_9 = request.POST.get('t2-9')
+    t2_10 = request.POST.get('t2-10')
+    
+    try: 
+        tarea2 = Tarea2.objects.get(alumno=nombre)
+        tarea2.t2_1 = t2_1 
+        tarea2.t2_2 = t2_2 
+        tarea2.t2_3 = t2_3 
+        tarea2.t2_4 = t2_4 
+        tarea2.t2_5 = t2_5 
+        tarea2.t2_6 = t2_6 
+        tarea2.t2_7 = t2_7 
+        tarea2.t2_8 = t2_8 
+        tarea2.t2_9 = t2_9 
+        tarea2.t2_10 = t2_10 
+
+    except Tarea2.DoesNotExist:
+        tarea2 = Tarea2(alumno=nombre, 
+		t2_1 = t2_1 ,
+		t2_2 = t2_2 ,
+		t2_3 = t2_3 ,
+		t2_4 = t2_4 ,
+		t2_5 = t2_5 ,
+		t2_6 = t2_6 ,
+		t2_7 = t2_7 ,
+		t2_8 = t2_8 ,
+		t2_9 = t2_9 ,
+        t2_10 = t2_10)
+		
+    tarea2.save()
+	
     # Tarea 3
     # Tarea 4
     # Tarea 5

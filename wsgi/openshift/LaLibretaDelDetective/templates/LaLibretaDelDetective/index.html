@@ -9,16 +9,15 @@
 {% block content %}
 <div id="div-front-general">
 	<div id="div-front-central">
-		<form id="form-name" action="/libreta" method="get">
+		<form id="form-name" action="/libreta" method="post">
 			{% csrf_token %}
-			<p>
-				Introduce tu nombre aquí para poder acceder a tu libreta de detective.
-			</p>
-			<label for="input-name" >Nombre y Apellidos</label>
+			<p> ¡ Bienvenido Detective ! </p>
+			<p>Introduce tus datos aquí para poder acceder a tu libreta de detective.</p>
 			<div>
+				<label for="input-name" >Nombre y Apellidos :</label>
 				<input type="text" id="input-name" name="input-name"/>
-				<input type="button" id="input-button" value="Acceder"/>
 			</div>
+			<input type="submit" id="input-button" value="Acceder"/>
 		</form>
 	</div>
 </div>

@@ -5,8 +5,9 @@ body {
 	background-attachment: fixed;
 	font-family: JournalEB;
 	padding: 5ex;
-	font-size: 12px;
+	font-size: 20px;
 	font-weight: bold;
+	text-align: center;
 }
 
 @font-face {
@@ -20,7 +21,7 @@ body {
 	margin: auto;
 	padding: 2em 3em;
 	width: 30%;
-	top: 40%;
+	top: 20%;
 }
 #div-front-general {
 	position: absolute;
