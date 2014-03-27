@@ -1,0 +1,61 @@
+{% extends "LaLibretaDelDetective/base.html" %}
+
+{% block content %}
+<h1>Alumnos</h1><br />
+<table>
+	<tbody>
+{% for alumno in alumnos %}
+	<tr><td>{{ alumno }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+
+<br /><br /><h1>Tarea1</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas1 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+<br /><br /><h1>Tarea2</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas2 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+<br /><br /><h1>Tarea3</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas3 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+<br /><br /><h1>Tarea4</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas4 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+<br /><br /><h1>Tarea5</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas5 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+<br /><br /><h1>Tarea6</h1><br />
+<table>
+	<tbody>
+{% for tarea in tareas6 %}
+	<tr><td>{{ tarea }}</td></tr>
+{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

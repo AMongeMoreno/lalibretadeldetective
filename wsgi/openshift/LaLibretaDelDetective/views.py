@@ -6,12 +6,33 @@ from django.db.models.base import Model
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
-import os
-import settings
+
+@ensure_csrf_cookie
+def admin(request):
+    passwd = request.GET.get('pass')
+    if (passwd == 'admin'):
+        alumnos = Alumno.objects.all()
+        tareas1 = Tarea1.objects.all()
+        tareas2 = Tarea2.objects.all()
+        tareas3 = Tarea3.objects.all()
+        tareas4 = Tarea4.objects.all()
+        tareas5 = Tarea5.objects.all()
+        tareas6 = Tarea6.objects.all()
+        
+    else: 
+        return redirect('/')
+    
+    context = { 'alumnos':alumnos,'tareas1':tareas1,'tareas2':tareas2,'tareas3':tareas3,'tareas4':tareas4,'tareas5':tareas5,'tareas6':tareas6  }
+    return render(request, 'LaLibretaDelDetective/results.html',context)
+
 
 @ensure_csrf_cookie
 def index(request):
-    context = {}
+    error = request.GET.get('error')
+    if error is None:
+        error = False
+        
+    context = {'error': error}
     return render(request, 'LaLibretaDelDetective/index.html', context)
 
 @ensure_csrf_cookie
@@ -23,9 +44,9 @@ def libreta_create(request):
     
     try:
         Alumno.objects.get(username=name)
-        return redirect('/?error=true')
+        return redirect('/?error=True')
     
-    except Tarea1.DoesNotExist:
+    except Alumno.DoesNotExist:
         alumno = Alumno(username=name,nombre=nombre,apellidos=apellidos,password=password)
         alumno.save()
         return redirect('/libreta')
@@ -42,7 +63,7 @@ def libreta(request):
     try:    
         Alumno.objects.get(username=name,password=password)
     except Alumno.DoesNotExist:
-        return redirect('/')
+        return redirect('/?error=True')
         
     try: 
         tarea1 = Tarea1.objects.get(alumno=name)
@@ -79,8 +100,10 @@ def libreta(request):
     except Tarea6.DoesNotExist:
         tarea6 = Tarea6(alumno = name)
         tarea6.save()            
+        
     context = {'nombre' : name, 'tarea1':  tarea1,'tarea2': tarea2,'tarea3': tarea3,
                'tarea4': tarea4,'tarea5': tarea5,'tarea6': tarea6}
+    
     return render(request, 'LaLibretaDelDetective/libreta.html', context)
 
 @ensure_csrf_cookie

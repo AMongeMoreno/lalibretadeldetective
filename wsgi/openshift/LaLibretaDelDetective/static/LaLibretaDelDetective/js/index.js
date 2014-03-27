@@ -18,6 +18,15 @@ var csrf_token = getCookie('csrftoken');
 
 $(document).ready(function() {
 	validate();
+	var error = $("#hidden-error").attr('value');
+	if(error == 'True'){
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: '¡ Lo siento Detective !',
+			// (string | mandatory) the text inside the notification
+			text: 'El usuario que has introducido no es correcto. Puede que lo hayas escrito mal, que todavía no tengas tu propia libreta, o que alguien más tenga tu mismo nombre de detective.'
+		});
+	}
 });
 
 function revert(){
@@ -70,16 +79,18 @@ var left = true;
 function flip() {
 	if (left){
 		left = false;
-		dir = "LEFT";
+		dir = "RIGHT";
+		verso = "<form id='form-name' action='/libreta_create' method='post'><input type='hidden' name='csrfmiddlewaretoken' value='"+csrf_token+"'><p>¡ Bienvenido Detective ! </p><p>Introduce tus datos aquí para crear tu propia libreta de detective:</p><table id='table-input'><tbody><tr><td class='label-container'><label for='input_nombre' >Nombre :</label></td><td class='input-container'><input type='text' id='input_nombre' name='input_nombre'/></td></tr><tr><td class='label-container'><label for='input_apellidos' >Apellidos :</label></td><td class='input-container'><input type='text' id='input_apellidos' name='input_apellidos'/></td></tr><tr><td class='label-container'><label for='input_name' >Nombre de detective :</label></td><td class='input-container'><input type='text' id='input_name' name='input_name'/></td></tr><tr><td class='label-container'><label for='input_pass' >Contraseña :</label></td><td class='input-container'><input type='password' id='input_pass' name='input_pass'/></td></tr><tr><td class='label-container'><label for='input_pass_repeat' >Repite tu contraseña :</label></td><td class='input-container'><input type='password' id='input_pass_confirm' name='input_pass_confirm'/></td></tr></tbody></table><input type='submit' id='input-button' value='Acceder'/></form><button onclick='flip();validate();'>Ya tengo libreta.</button>";
 	}else{
 		left = true;
-		dir = "RIGHT";
+		dir = "LEFT";
+		verso = "<form id='form-name' action='/libreta' method='post'><input type='hidden' name='csrfmiddlewaretoken' value='"+csrf_token+"'<p>¡ Bienvenido Detective !</p><table id='table-input'><tbody><tr><td class='label-container'><label for='input_name' >Nombre de detective :</label></td><td class='input-container'><input type='text' id='input_name' name='input_name'/></td></tr><tr><td class='label-container'><label for='input_pass' >Contraseña :</label></td><td class='input-container'><input type='password' id='input_pass' name='input_pass'/></td></tr></tbody></table><input type='submit' id='input-button' value='Acceder'/></form><button onclick='flip(); validate();'>Aún no tengo libreta.</button>";
 	}
 	$(".flipbox").flippy({
 		color_target : "white",
 		duration : "500",
 		direction : dir,
-		verso : "<div class='flipbox-container'><div class='flipbox'><form id='form-name' action='/libreta_create' method='post'><input type='hidden' name='csrfmiddlewaretoken' value='"+csrf_token+"'><p>¡ Bienvenido Detective ! </p><p>Introduce tus datos aquí para crear tu propia libreta de detective:</p><table id='table-input'><tbody><tr><td class='label-container'><label for='input_nombre' >Nombre :</label></td><td class='input-container'><input type='text' id='input_nombre' name='input_nombre'/></td></tr><tr><td class='label-container'><label for='input_apellidos' >Apellidos :</label></td><td class='input-container'><input type='text' id='input_apellidos' name='input_apellidos'/></td></tr><tr><td class='label-container'><label for='input_name' >Nombre de detective :</label></td><td class='input-container'><input type='text' id='input_name' name='input_name'/></td></tr><tr><td class='label-container'><label for='input_pass' >Contraseña :</label></td><td class='input-container'><input type='password' id='input_pass' name='input_pass'/></td></tr><tr><td class='label-container'><label for='input_pass_repeat' >Repite tu contraseña :</label></td><td class='input-container'><input type='password' id='input_pass_confirm' name='input_pass_confirm'/></td></tr></tbody></table><input type='submit' id='input-button' value='Acceder'/></form><button onclick='flip();validate();'>Ya tengo libreta.</button></div></div>",
+		verso : verso,
 		onFinish : validate,
 		});
 }
