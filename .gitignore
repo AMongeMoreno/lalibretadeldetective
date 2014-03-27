@@ -14,3 +14,4 @@ dist/
 build/
 .credentials
 
+wsgi/static/results

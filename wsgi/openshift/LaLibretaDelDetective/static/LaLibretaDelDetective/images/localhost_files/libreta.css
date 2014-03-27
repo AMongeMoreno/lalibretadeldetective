@@ -1,0 +1,201 @@
+.b-page-cover-front {
+	background-image: url("../images/portada.jpg") !important;
+	background-size: cover !important;
+}
+
+.b-wrap-right {
+	background-image: url("../images/left-page.jpg") !important;
+	background-size: cover !important;
+}
+.b-wrap-left {
+	background-image: url("../images/left-page.jpg") !important;
+	background-size: cover !important;
+}
+input[type="text"] {
+	background: transparent;
+	border-width: 3px;
+	border-radius: 5px;
+	border-color: #000000;
+	font-family: JournalEB;
+	font-weight: bold;
+	padding: 0 1em;
+}
+.page-container {
+	margin: auto;
+	width: 95%;
+}
+textarea {
+	background: transparent;
+	border-width: 3px;
+	border-radius: 5px;
+	border-color: #000000;
+	font-family: JournalEB;
+	font-weight: bold;
+	resize: none;
+	padding: 0.3em 0.3em;
+	width: 31em;
+}
+#footer-container {
+	background: url("../images/Scratch_BG_Metal_Plate_05.png");
+	display: inline-block;
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+	padding: 0.5em 0em;
+	background-size: 8em 58px;
+	background-repeat: no-repeat;
+	font-size: 28px;
+	color: #151515;
+	width: 8em;
+	text-align: center;
+}
+
+#footer-container p {
+	margin:0;
+	font-family: font1942;
+}
+@font-face {
+	font-family: font1942;
+	src: url("../fonts/font1942.ttf");
+}
+body {
+	background: #000000 url("../images/detective-items_00435269.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: JournalEB;
+	padding: 5ex;
+	font-size: 12px;
+	font-weight: bold;
+}
+.div-page {
+	height: 100%;
+}
+.input-container-end{
+	text-align: right;
+}
+.input-container-end > input{
+	width: 23em;
+}
+
+#book-container {
+	width: 80%;
+	height: 800px;
+	margin: auto;
+}
+#book-container p {
+	margin: 0;
+}
+#table-container-t1a {
+	height: 75ex;
+}
+#table-t1a {
+	margin-top: 5ex;
+}
+#table-t1b {
+	padding: 2ex 0;
+}
+#mybook table {
+	width: 85%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	overflow: visible;
+	text-align: center;
+	margin: 0;
+	margin-top: 1ex;
+}
+h2 {
+	overflow: visible;
+	text-align: center;
+	margin: 0.5ex 0;
+}
+h3 {
+	margin: 0;
+}
+span {
+	margin: auto;
+}
+@font-face {
+	font-family: JournalEB;
+	src: url("../fonts/JournalEB.ttf");
+}
+
+#page-1d-container {
+	width: 60%;
+}
+#page-2c-container {
+	padding-top: 4ex;
+}
+#page-2d-container {
+	padding-top: 4ex;
+}
+.page-container {
+	padding-top: 3ex;
+}
+.img-face {
+	position: absolute;
+	right: 2em;
+	top: -0.5em;
+}
+div {
+	overflow: visible;
+}
+.sosp-name-container {
+	position: absolute;
+	top: 0.7em;
+	left: 1em;
+	font-size: x-large;
+}
+.sosp-name-container > h1 {
+	margin: 0;
+}
+.muerte-container {
+	position: absolute;
+	top: 30ex;
+}
+#page-tarea-1d img {
+	position: relative;
+	top: 6ex;
+	left: 7em;
+	height: 90%;
+}
+
+#page-tarea-2d img {
+	position: relative;
+	top: 2ex;
+	left: 4em;
+	height: 85%;
+}
+#page-tarea-4-frontb img {
+	position: absolute;
+	right: 1em;
+	bottom: 12em;
+	height: 190px;
+}
+#page-tarea-4-frontb h2 {
+	top: 14ex;
+	width: 20em;
+	position: relative;
+	margin: auto;
+}
+#page-tarea-4-frontb h1 {
+	position: relative;
+	top: 7ex;
+	font-size: 34px;
+	width: 13em;
+}
+#div-nombre {
+	position: relative;
+	top: 15ex;
+	left: 4em;
+	width: 27em;
+	height: 43ex;
+	background: url("../images/cndv-7dhyww70errz-sor9u.png");
+	background-size: cover !important;
+	padding: 1em;
+	margin: auto;
+}

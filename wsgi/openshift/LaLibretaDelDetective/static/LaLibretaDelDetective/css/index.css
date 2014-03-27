@@ -1,0 +1,53 @@
+body {
+	background: #000000 url("../images/detective-items_00435269.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: JournalEB;
+	padding: 5ex;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#form-name label.error {
+	color:red;
+}
+#form-name input.error {
+	border:1px solid red;
+}
+
+#table-input{
+	width: 100%;
+}
+input[type="text"]{
+	width:16em;
+}
+#table-input .label-container{
+	text-align:left;
+}
+#table-input .input-container{
+	text-align:right;
+}
+
+@font-face {
+	font-family: JournalEB;
+	src: url("../fonts/JournalEB.ttf");
+}
+
+#div-front-central {
+	background: #FFFFFF;
+	position: relative;
+	margin: auto;
+	padding: 2em 3em;
+	width: 30%;
+	top: 20%;
+}
+#div-front-general {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 30;
+}
