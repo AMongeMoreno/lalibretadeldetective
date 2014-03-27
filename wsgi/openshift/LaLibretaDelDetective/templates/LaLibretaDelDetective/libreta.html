@@ -41,9 +41,15 @@
 
 		</div>
 		<div id="div-button-save">
-			<input id="button-save" type="submit" value="Guardar" name="button-save"/>
+			<input id="button-save" type="submit" value="Guardar" name="button"/>
 		</div>
 	</form>
+	<form id="form-logout" action="/logout" method="post">
+		{% csrf_token %}
+	</form>
+	<div id="div-button-logout">
+		<button id="button-logout" name="button">Salir</Button>
+	</div>
 </div>
 
 {% endblock %}

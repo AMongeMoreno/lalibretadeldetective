@@ -17,14 +17,37 @@ var csrf_token = getCookie('csrftoken');
 
 
 $(document).ready(function() {
+	$.extend($.gritter.options, {
+	    position: 'middle-center', // possibilities: bottom-left, bottom-right, top-left, top-right
+		fade_in_speed: 100, // how fast notifications fade in (string or int)
+		fade_out_speed: 100, // how fast the notices fade out
+		time: 7000 // hang on the screen for...
+	});
+
 	validate();
 	var error = $("#hidden-error").attr('value');
-	if(error == 'True'){
+	if(error == 'pass'){
 		$.gritter.add({
 			// (string | mandatory) the heading of the notification
 			title: '¡ Lo siento Detective !',
 			// (string | mandatory) the text inside the notification
-			text: 'El usuario que has introducido no es correcto. Puede que lo hayas escrito mal, que todavía no tengas tu propia libreta, o que alguien más tenga tu mismo nombre de detective.'
+			text: 'El usuario que has introducido no es correcto. Puede que hayas escrito mal tu contraseña ...'
+		});
+	}
+	if(error == 'exists'){
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: '¡ Lo siento Detective !',
+			// (string | mandatory) the text inside the notification
+			text: '¡ El usuario que has introducido ya tiene una libreta ! Intenta loguearte si conoces la contraseña,  '
+		});
+	}
+	if(error == 'no_user'){
+		$.gritter.add({
+			// (string | mandatory) the heading of the notification
+			title: '¡ Lo siento Detective !',
+			// (string | mandatory) the text inside the notification
+			text: '¡ El usuario que has introducido todavía no tiene libreta ! Prueba a crearte una ... '
 		});
 	}
 });
@@ -84,7 +107,7 @@ function flip() {
 	}else{
 		left = true;
 		dir = "LEFT";
-		verso = "<form id='form-name' action='/libreta' method='post'><input type='hidden' name='csrfmiddlewaretoken' value='"+csrf_token+"'<p>¡ Bienvenido Detective !</p><table id='table-input'><tbody><tr><td class='label-container'><label for='input_name' >Nombre de detective :</label></td><td class='input-container'><input type='text' id='input_name' name='input_name'/></td></tr><tr><td class='label-container'><label for='input_pass' >Contraseña :</label></td><td class='input-container'><input type='password' id='input_pass' name='input_pass'/></td></tr></tbody></table><input type='submit' id='input-button' value='Acceder'/></form><button onclick='flip(); validate();'>Aún no tengo libreta.</button>";
+		verso = "<form id='form-name' action='/login' method='post'><input type='hidden' name='csrfmiddlewaretoken' value='"+csrf_token+"'<p>¡ Bienvenido Detective !</p><table id='table-input'><tbody><tr><td class='label-container'><label for='input_name' >Nombre de detective :</label></td><td class='input-container'><input type='text' id='input_name' name='input_name'/></td></tr><tr><td class='label-container'><label for='input_pass' >Contraseña :</label></td><td class='input-container'><input type='password' id='input_pass' name='input_pass'/></td></tr></tbody></table><input type='submit' id='input-button' value='Acceder'/></form><button onclick='flip(); validate();'>Aún no tengo libreta.</button>";
 	}
 	$(".flipbox").flippy({
 		color_target : "white",

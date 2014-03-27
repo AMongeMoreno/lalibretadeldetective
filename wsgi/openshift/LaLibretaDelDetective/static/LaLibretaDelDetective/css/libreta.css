@@ -5,6 +5,20 @@
 	left: 40% !important;	
 }
 
+#div-button-logout{
+	position:fixed;
+	z-index:150;
+	bottom: 2em;
+	right: 2em;
+}
+#button-logout{
+	background: url("../images/red_button.png");
+	border: none;
+	background-size: cover;
+	width: 11em;
+	height: 11em;
+}
+
 #custom-menu{
 	position:fixed;
 	top: 2em;
@@ -58,7 +72,7 @@ textarea {
 	font-weight: bold;
 	resize: none;
 	padding: 0.3em 0.3em;
-	width: 31em;
+	width: 100%;
 }
 #footer-container {
 	background: url("../images/Scratch_BG_Metal_Plate_05.png");

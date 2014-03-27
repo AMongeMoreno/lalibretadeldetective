@@ -1,8 +1,6 @@
 # Create your views here.
 from LaLibretaDelDetective.models import Tarea1, Tarea2, Tarea3, Tarea5, Tarea6, \
     Tarea4, Alumno
-from django.core.files.base import File
-from django.db.models.base import Model
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -10,7 +8,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 @ensure_csrf_cookie
 def admin(request):
     passwd = request.GET.get('pass')
-    if (passwd == 'admin'):
+    if (passwd == 'admin123'):
         alumnos = Alumno.objects.all()
         tareas1 = Tarea1.objects.all()
         tareas2 = Tarea2.objects.all()
@@ -18,7 +16,6 @@ def admin(request):
         tareas4 = Tarea4.objects.all()
         tareas5 = Tarea5.objects.all()
         tareas6 = Tarea6.objects.all()
-        
     else: 
         return redirect('/')
     
@@ -28,12 +25,41 @@ def admin(request):
 
 @ensure_csrf_cookie
 def index(request):
+    user = request.session.get('user')  
+    if (user is not None):
+        return redirect('/libreta')
+    
     error = request.GET.get('error')
     if error is None:
-        error = False
+        error = 'none'
         
     context = {'error': error}
     return render(request, 'LaLibretaDelDetective/index.html', context)
+
+@ensure_csrf_cookie
+def logout(request):
+    user = request.session.get('user')  
+    if (user is not None):
+        request.session.pop('user')
+    return redirect('/')
+
+
+@ensure_csrf_cookie
+def login(request):
+    name = request.POST.get('input_name')
+    password = request.POST.get('input_pass')
+    if (name is None or password is None):
+        return redirect('/')
+    try:    
+        alumno = Alumno.objects.get(username=name)
+        if (alumno.password != password):
+            return redirect('/?error=pass')
+        else:
+            request.session['user'] = name
+    except Alumno.DoesNotExist:
+        return redirect('/?error=no_user')
+        
+    return redirect('/libreta')
 
 @ensure_csrf_cookie
 def libreta_create(request):
@@ -44,27 +70,22 @@ def libreta_create(request):
     
     try:
         Alumno.objects.get(username=name)
-        return redirect('/?error=True')
+        return redirect('/?error=exists')
     
     except Alumno.DoesNotExist:
         alumno = Alumno(username=name,nombre=nombre,apellidos=apellidos,password=password)
         alumno.save()
+        request.session['user'] = name
         return redirect('/libreta')
     
 
 @ensure_csrf_cookie
 def libreta(request):
-    name = request.POST.get('input_name')
-    password = request.POST.get('input_pass')
-    
-    if (name is None or password is None):
+    user = request.session.get('user') 
+    if (user is None):
         return redirect('/')
 
-    try:    
-        Alumno.objects.get(username=name,password=password)
-    except Alumno.DoesNotExist:
-        return redirect('/?error=True')
-        
+    name = user
     try: 
         tarea1 = Tarea1.objects.get(alumno=name)
     except Tarea1.DoesNotExist:
@@ -108,9 +129,17 @@ def libreta(request):
 
 @ensure_csrf_cookie
 def libreta_save(request):
-    nombre = request.POST.get('nombre')
-    if nombre is None:
+    user = request.session.get('user')
+    if (user is None):
         return redirect('/')
+    
+    button = request.POST.get('button')
+
+    if (button == 'Salir'):
+        request.session.pop('user')
+        return redirect('/')
+            
+    nombre = user
     
     # Tarea 1
     t1a_1 = request.POST.get('input-t1a-1')

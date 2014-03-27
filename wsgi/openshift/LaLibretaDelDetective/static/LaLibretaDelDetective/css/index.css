@@ -1,3 +1,10 @@
+.middle-center{
+	z-index: 150;
+	position:fixed;
+	top: 40% !important;
+	left: 40% !important;	
+}
+
 body {
 	background: #000000 url("../images/detective-items_00435269.jpg");
 	background-size: 100%;
